@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pg+I0d33/yrYOO3D4CF9SsIyrRmsk+Ld91AJLKnvGDwBJw7eIhuDNFiP2LKAxJxa3/cZ5x7HlPZV8gfbXk+TNg==",
+  "dgSpecHash": "1NDCh9EhtBzcqyoe09cFyQ4NDVFPsJwAK5lagWc11qyEHDYeiTwJNip+W0zkKeG+wnRLFw7erfq0KYtBnO5wuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jawda\\Desktop\\.net\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
+  "projectFilePath": "C:\\Users\\jawda\\Desktop\\.net\\APIs\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jawda\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\jawda\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

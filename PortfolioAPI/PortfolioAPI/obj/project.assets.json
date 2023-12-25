@@ -11183,11 +11183,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jawda\\Desktop\\.net\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
+      "projectUniqueName": "C:\\Users\\jawda\\Desktop\\.net\\APIs\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
       "projectName": "PortfolioAPI",
-      "projectPath": "C:\\Users\\jawda\\Desktop\\.net\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
+      "projectPath": "C:\\Users\\jawda\\Desktop\\.net\\APIs\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
       "packagesPath": "C:\\Users\\jawda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jawda\\Desktop\\.net\\PortfolioAPI\\PortfolioAPI\\obj\\",
+      "outputPath": "C:\\Users\\jawda\\Desktop\\.net\\APIs\\PortfolioAPI\\PortfolioAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
