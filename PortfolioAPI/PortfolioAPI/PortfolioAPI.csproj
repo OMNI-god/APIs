@@ -11,9 +11,5 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IServices\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
 
 </Project>
