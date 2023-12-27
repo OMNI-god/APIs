@@ -5,7 +5,8 @@ namespace PortfolioAPI.IServices
     public interface IInvestmentsServices
     {
         IEnumerable<Investment> GetInvestments();
-        Investment GetInvestment(int id);
-
+        Investment GetInvestment(Guid id);
+        void CreateInvestment(Investment investment);
+        void DeleteInvestment(Guid id);
     }
 }
