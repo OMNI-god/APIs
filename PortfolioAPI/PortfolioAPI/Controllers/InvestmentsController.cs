@@ -1,84 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PortfolioAPI.Database;
+using PortfolioAPI.IServices;
 using PortfolioAPI.Models;
 
 namespace PortfolioAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("RESTapi/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class InvestmentsController : ControllerBase
     {
-        private readonly APIDB _context;
-
-        public InvestmentsController(APIDB context)
+        private IInvestmentsServices services;
+        public InvestmentsController(IInvestmentsServices services)
         {
-            _context = context;
+            this.services=services;
         }
 
         // GET: api/Investments
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Investment>>> Getinvestments()
         {
-          if (_context.investments == null)
-          {
-              return NotFound();
-          }
-            return await _context.investments.ToListAsync();
+            string token = getToken();
+            var data=services.GetInvestments(token).ToList();
+            if(data.Count == 0)
+            {
+                return NoContent();
+            }
+            return data;
         }
 
-        // GET: api/Investments/5
+        // GET: api/Investments/{int}x
         [HttpGet("{id}")]
         public async Task<ActionResult<Investment>> GetInvestment(Guid id)
         {
-          if (_context.investments == null)
-          {
-              return NotFound();
-          }
-            var investment = await _context.investments.FindAsync(id);
-
-            if (investment == null)
+            var data=services.GetInvestment(id);
+            if (data == null)
             {
                 return NotFound();
             }
-
-            return investment;
+            return data;
         }
 
         // PUT: api/Investments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutInvestment(Guid id, Investment investment)
+        public async Task<ActionResult<Investment>> PutInvestment(Guid id, Investment investment)
         {
-            if (id != investment.Id)
+            var data=services.UpdataInvestment(id,investment);
+            if (data == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
-            _context.Entry(investment).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!InvestmentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return data;
         }
 
         // POST: api/Investments
@@ -86,39 +68,29 @@ namespace PortfolioAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Investment>> PostInvestment(Investment investment)
         {
-          if (_context.investments == null)
-          {
-              return Problem("Entity set 'APIDB.investments'  is null.");
-          }
-            _context.investments.Add(investment);
-            await _context.SaveChangesAsync();
+            string token = getToken();
 
-            return CreatedAtAction("GetInvestment", new { id = investment.Id }, investment);
+            var investmentData = services.CreateInvestment(investment,token);
+
+            return CreatedAtAction("GetInvestment", new { id = investment.Id }, investmentData);
+        }
+
+        private string getToken()
+        {
+            return Request.Headers["Authorization"];
         }
 
         // DELETE: api/Investments/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInvestment(Guid id)
+        public async Task<ActionResult<Investment>> DeleteInvestment(Guid id)
         {
-            if (_context.investments == null)
+            var data=services.DeleteInvestment(id);
+            if(data == null)
             {
                 return NotFound();
             }
-            var investment = await _context.investments.FindAsync(id);
-            if (investment == null)
-            {
-                return NotFound();
-            }
-
-            _context.investments.Remove(investment);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return data;
         }
 
-        private bool InvestmentExists(Guid id)
-        {
-            return (_context.investments?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }
