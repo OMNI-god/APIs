@@ -526,3 +526,9 @@ C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\scop
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.csproj.CopyComplete
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.genruntimeconfig.cache
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\ref\PortfolioAPI.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.MvcApplicationPartsAssemblyInfo.cs
