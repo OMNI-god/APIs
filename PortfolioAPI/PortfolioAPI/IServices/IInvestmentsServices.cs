@@ -8,7 +8,7 @@ namespace PortfolioAPI.IServices
         Investment GetInvestment(Guid id);
         Investment CreateInvestment(Investment investment,string token);
         Investment DeleteInvestment(Guid id);
-        Investment UpdataInvestment(Guid id, Investment updatedInvestment);
+        Object UpdataInvestment(Guid id, Investment updatedInvestment);
         bool AlreadyExists(Guid id);
     }
 }

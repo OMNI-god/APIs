@@ -17,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IUsersServices, UsersServices>();
 builder.Services.AddScoped<IInvestmentsServices, InvestmentsServices>();
+builder.Services.AddScoped<CommonMethods>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(token =>

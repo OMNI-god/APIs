@@ -14,35 +14,22 @@ namespace PortfolioAPI.Services
     public class InvestmentsServices : IInvestmentsServices
     {
         private readonly APIDB context;
-        public InvestmentsServices(APIDB context)
+        private CommonMethods commonMethods;
+        public InvestmentsServices(APIDB context, CommonMethods commonMethods)
         {
             this.context = context;
+            this.commonMethods = commonMethods;
+
         }
 
         public Investment CreateInvestment(Investment investment,string token)
         {
-            string userid = getDataFromJwtToken(token);
+            string userid = commonMethods.getDataFromJwtToken(token);
             investment.Id = Guid.NewGuid();
             investment.UserId = new Guid(userid);
             context.investments.AddAsync(investment);
             context.SaveChanges();
             return investment;
-        }
-
-        private string getDataFromJwtToken(string token)
-        {
-            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            token = token.Split(new[] {' '},StringSplitOptions.RemoveEmptyEntries)[1];
-            if (tokenHandler.CanReadToken(token))
-            {
-                JwtSecurityToken jwtToken = tokenHandler.ReadJwtToken(token);
-                Claim userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "id");
-                if (userIdClaim != null)
-                {
-                    return userIdClaim.Value.ToString();
-                }
-            }
-            return "";
         }
 
         public Investment DeleteInvestment(Guid id)
@@ -81,7 +68,7 @@ namespace PortfolioAPI.Services
             {
                 return null;
             }
-            Guid userid = new Guid(getDataFromJwtToken(token));
+            Guid userid = new Guid(commonMethods.getDataFromJwtToken(token));
             return context.investments.Where(x=>x.UserId==userid);
         }
 
@@ -94,7 +81,7 @@ namespace PortfolioAPI.Services
             return context.investments.Any(x=> x.Id==id);
         }
 
-        public Investment UpdataInvestment( Guid id, Investment updatedInvestment)
+        public Object UpdataInvestment( Guid id, Investment updatedInvestment)
         {
             if (context.investments == null)
             {
@@ -109,11 +96,20 @@ namespace PortfolioAPI.Services
             context.Entry(oldInvestment).State = EntityState.Detached;
 
             updatedInvestment.Id = id;
-            context.investments.Update(updatedInvestment);
-            context.SaveChanges();
+            var updated = context.investments.Update(updatedInvestment);
 
-            return oldInvestment;
+            List<string> fieldList = commonMethods.ModifiedDataList(oldInvestment,updatedInvestment,context);
+
+            
+            context.SaveChanges();
+            return new
+            {
+                fields_updated = fieldList,
+                before_update = oldInvestment,
+                updated_on = DateTime.UtcNow.ToString("d/MM/yyyy hh:mm tt 'UTC'")
+            };
         }
+        
 
     }
 }

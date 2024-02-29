@@ -268,8 +268,6 @@ C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\Port
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.AssemblyInfo.cs
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.csproj.CoreCompileInputs.cache
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.RazorAssemblyInfo.cache
-C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.RazorAssemblyInfo.cs
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.dll
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\refint\PortfolioAPI.dll
 C:\Users\jawda\Desktop\.net\APIs\PortfolioAPI\PortfolioAPI\obj\Debug\net6.0\PortfolioAPI.pdb

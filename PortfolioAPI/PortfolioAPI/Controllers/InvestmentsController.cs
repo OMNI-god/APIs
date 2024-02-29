@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using PortfolioAPI.Database;
 using PortfolioAPI.IServices;
 using PortfolioAPI.Models;
@@ -53,7 +54,7 @@ namespace PortfolioAPI.Controllers
         // PUT: api/Investments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<ActionResult<Investment>> PutInvestment(Guid id, Investment investment)
+        public async Task<ActionResult<Object>> PutInvestment(Guid id, Investment investment)
         {
             var data=services.UpdataInvestment(id,investment);
             if (data == null)
